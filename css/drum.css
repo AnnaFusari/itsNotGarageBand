@@ -1,0 +1,25 @@
+.drumkit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 90%;
+    width: 99%;
+}
+
+.pad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100px;
+    margin: 10px;
+    flex: 1 0 calc(25% - 20px);
+    background: radial-gradient(#333e54, #0a234d);
+    border-radius: 10px;
+}
+
+.pad img {
+    pointer-events: none;
+    width: 150px;
+    height: 150px;
+}
