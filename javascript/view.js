@@ -96,7 +96,8 @@ view = {
       return;
   
     if (document.getElementById(father.getAttribute("id") + "_container")){
-      container = document.getElementById(father.getAttribute("id") + "_container").style.display = 'block';
+      container = document.getElementById(father.getAttribute("id") + "_container");
+      container.style.display = 'block';
     }
     else{
       container= document.createElement("div");
@@ -123,16 +124,16 @@ view = {
   },
 
   deleteInstrument: function(target){
-    num = target.getAttribute("id").split("_")[1];
+    num = parseInt(target.getAttribute("id").split("_")[1]);
     ins = model.getInstruments();
     target.remove();
 
-    for(let i =num; i<model.getInstruments().length; i++){
+    for(let i = num; i<model.getInstruments().length; i++){
       let div = ins[i].getRefDiv();
       if(ins[i].getCode() != div.getAttribute("id").split('_')[1]){
         div.setAttribute("id", ins[i].getType() + '_' + ins[i].getCode())
         if(ins[i].getRefInCont()){
-          ins[i].getRefInCont().setAttribute("id", ins[i].getType() + '_' + ins[i].getCode()+ "_container" )
+          ins[i].getRefInCont().setAttribute("id", ins[i].getType() + '_' + ins[i].getCode() + "_container" );
         }
         
       }
@@ -185,7 +186,7 @@ view = {
     el.children[0].innerText = seconds;
   },
 
-  now_recording: function(event){ /* accorpare con printTime ?? */
+  now_recording: function(event){ 
     target = event.target.closest('.record_square');
     target.classList.add("recording");
   },
@@ -224,7 +225,7 @@ view = {
   },
 
   play_record: function(record) {
-    canvas = record.getFather().getRefDiv().children[1].children[record.getCode()].children[1]; /*boh migliorabile */
+    canvas = record.getFather().getRefDiv().children[1].children[record.getCode()].children[1]; 
     canvas.style.display = "block";
 
     let ctx = canvas.getContext('2d');
