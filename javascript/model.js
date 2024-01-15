@@ -191,8 +191,9 @@ class Voice extends Instrument{
   }
 
   draw(container){
-      /*si potrebbe anche eliminare */
+      
   }
+
   setUpMidi(){
    
   }
@@ -201,6 +202,8 @@ class Voice extends Instrument{
     return this.type;
   }
 }
+
+ /*-------------Recorder--------------*/
 
 class Record_square{
   constructor(father, code){
@@ -388,6 +391,7 @@ class Instrument_Recorder extends Record_square{
     this.offArray = [];
     this.startTime = null;
     this.can_record = true;
+    clearInterval(this.intLoop);
   }
 
   getBPM(){
@@ -416,6 +420,7 @@ class Instrument_Recorder extends Record_square{
 }
 
 
+/*-------------Model Object--------------*/
 model = {
   
   instruments: [],
@@ -434,6 +439,8 @@ model = {
   outFlag: false,
   midi:null,
   midiFlag:false,
+
+  /*-------------Getter and setter methods--------------*/
 
   getInstruments: function(){
     return this.instruments;
@@ -550,6 +557,8 @@ model = {
   setMidiFlag: function(midiFlag){
     this.midiFlag = midiFlag;
   },
+
+  /*-------------Model methods--------------*/
 
   checkButtons: function(){
     let count = 0;
