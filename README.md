@@ -2,7 +2,7 @@
 
 
 <p align="center">
-    <img src="code/images/logo.png" alt="alt text">
+    <img src="images/logo.png" alt="alt text">
 </p>
 
 <p align="center">
